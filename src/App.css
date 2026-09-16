@@ -1,0 +1,325 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&display=swap");
+
+:root {
+   --color-fondo: #f7f6f2;
+    --color-fondo-alterno: #eee9df;
+  --color-titulo: #a98965;
+  --color-texto: #626759;
+  --color-dorado: #b19b77;
+  --color-boton: #718066;
+  --color-boton-hover: #5e6b55;
+  --color-claro: #fffdf8;
+
+  --fuente-titulo: "Cormorant Garamond", serif;
+  --fuente-texto: "Montserrat", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  min-width: 20rem;
+  min-height: 100vh;
+
+  margin: 0;
+  overflow-x: hidden;
+
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  background-color: var(--color-fondo);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.titulo-principal {
+  margin: 0;
+
+  color: var(--color-titulo);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(3rem, 11vw, 7rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+
+.titulo-seccion {
+  margin: 0;
+
+  color: var(--color-titulo);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+
+
+
+
+.texto-destacado {
+  margin: 0 0 1rem;
+
+  color: var(--color-texto);
+  font-size: clamp(0.75rem, 2.5vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.seccion-clara {
+  background-color: var(--color-fondo);
+}
+
+.seccion-alterna {
+  background-color: var(--color-fondo-alterno);
+}
+
+
+/* Texto descriptivo para las secciones alternas */
+
+.seccion-alterna .texto-descriptivo {
+  color: var(--color-texto);
+}
+
+
+
+
+.boton-principal {
+  min-width: 10.5rem;
+  min-height: 3rem;
+
+  padding: 0.85rem 2rem;
+
+  border: 1px solid var(--color-boton);
+
+  color: var(--color-claro);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  background-color: var(--color-boton);
+  cursor: pointer;
+
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.boton-principal:hover {
+  border-color: var(--color-boton-hover);
+  background-color: var(--color-boton-hover);
+  transform: translateY(-2px);
+}
+
+.boton-principal:focus-visible {
+  outline: 3px solid rgb(177 155 119 / 45%);
+  outline-offset: 4px;
+}
+
+.boton-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 10rem;
+  min-height: 2.8rem;
+
+  padding: 0.75rem 1.5rem;
+
+  border: 1px solid var(--color-boton);
+
+  color: var(--color-boton);
+  font-family: var(--fuente-texto);
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  background-color: transparent;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    transform 200ms ease;
+}
+
+.boton-secundario:hover {
+  color: var(--color-claro);
+  background-color: var(--color-boton);
+  transform: translateY(-2px);
+}
+
+.boton-secundario:focus-visible {
+  outline: 3px solid rgb(113 128 102 / 30%);
+  outline-offset: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contenedor de toda la invitación posterior a la portada */
+
+.tarjeta {
+  width: 100%;
+  min-height: 100svh;
+  overflow-x: hidden;
+}
+
+
+.reveal-section {
+  width: 100%;
+
+  opacity: 0;
+  transform: translateY(2rem);
+
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+.reveal-section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+.boton-musica {
+  position: fixed;
+  z-index: 100;
+
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+
+  width: 3.15rem;
+  height: 3.15rem;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid rgb(113 128 102 / 55%);
+  border-radius: 50%;
+
+  color: var(--color-boton);
+  font-size: 0.9rem;
+
+  background-color: rgb(247 246 242 / 72%);
+  box-shadow: 0 0.35rem 1rem rgb(74 84 67 / 14%);
+
+  backdrop-filter: blur(0.35rem);
+  -webkit-backdrop-filter: blur(0.35rem);
+
+  cursor: pointer;
+
+  transition:
+    color 200ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
+.boton-musica:hover {
+  color: var(--color-claro);
+  border-color: var(--color-boton);
+  background-color: rgb(113 128 102 / 88%);
+  transform: translateY(-2px);
+}
+
+.boton-musica:active {
+  transform: scale(0.94);
+}
+
+.boton-musica:focus-visible {
+  outline: 3px solid rgb(113 128 102 / 30%);
+  outline-offset: 4px;
+}
+
+.boton-musica:not(.boton-musica--activo) svg {
+  transform: translateX(0.08rem);
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal-section,
+.reveal-section--visible {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+
+
+}
+
+
+@media (max-width: 600px) {
+  .boton-musica {
+    right: max(0.85rem, env(safe-area-inset-right));
+    bottom: max(0.85rem, env(safe-area-inset-bottom));
+
+    width: 2.8rem;
+    height: 2.8rem;
+
+    font-size: 0.8rem;
+
+    background-color: rgb(247 246 242 / 68%);
+  }
+}

@@ -1,0 +1,154 @@
+.cuenta-regresiva {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  overflow: hidden;
+
+  display: grid;
+  place-items: center;
+
+  padding:
+    clamp(4.5rem, 10vw, 7rem)
+    clamp(1.25rem, 5vw, 3rem);
+}
+
+.cuenta-regresiva__contenido {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 56rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.cuenta-regresiva__introduccion {
+  margin:
+    0
+    0
+    clamp(0.65rem, 2vh, 1rem);
+
+  color: var(--color-texto);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.cuenta-regresiva__titulo {
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.cuenta-regresiva__contador {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.65rem, 2vw, 1.5rem);
+}
+
+.cuenta-regresiva__unidad {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    clamp(1rem, 3vw, 1.75rem)
+    clamp(0.4rem, 2vw, 1rem);
+
+  border: 1px solid rgb(169 137 101 / 22%);
+
+  background-color: rgb(255 255 255 / 32%);
+}
+
+.cuenta-regresiva__numero {
+  color: var(--color-texto);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.2rem, 7vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.cuenta-regresiva__etiqueta {
+  margin-top: clamp(0.5rem, 1.5vw, 0.8rem);
+
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: clamp(0.58rem, 1.5vw, 0.78rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cuenta-regresiva__linea {
+  width: clamp(3rem, 9vw, 5rem);
+  height: 1px;
+
+  margin-top: clamp(2rem, 5vw, 3rem);
+
+  background-color: var(--color-titulo);
+  opacity: 0.7;
+}
+
+.cuenta-regresiva__mensaje {
+  margin: 0;
+
+  color: var(--color-texto);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .cuenta-regresiva {
+    padding:
+      4rem
+      1rem;
+  }
+
+  .cuenta-regresiva__titulo {
+    margin-bottom: 2rem;
+  }
+
+  .cuenta-regresiva__contador {
+    gap: 0.45rem;
+  }
+
+  .cuenta-regresiva__unidad {
+    min-height: 6.5rem;
+    padding: 1rem 0.25rem;
+  }
+
+  .cuenta-regresiva__numero {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
+  .cuenta-regresiva__etiqueta {
+    font-size: clamp(0.48rem, 2.3vw, 0.65rem);
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 360px) {
+  .cuenta-regresiva__contador {
+    gap: 0.3rem;
+  }
+
+  .cuenta-regresiva__numero {
+    font-size: 1.85rem;
+  }
+
+  .cuenta-regresiva__etiqueta {
+    font-size: 0.47rem;
+    letter-spacing: 0.04em;
+  }
+}

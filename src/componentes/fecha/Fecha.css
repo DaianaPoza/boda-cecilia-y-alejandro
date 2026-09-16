@@ -1,0 +1,177 @@
+.fecha {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: clamp(22rem, 55svh, 34rem);
+  overflow: hidden;
+
+  display: grid;
+  place-items: center;
+
+  padding:
+    clamp(4rem, 9vw, 7rem)
+    clamp(1.5rem, 6vw, 4rem);
+}
+
+.fecha__contenido {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.fecha__titulo {
+  margin-bottom: clamp(1.25rem, 3vh, 2rem);
+}
+
+.fecha__numero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.fecha__separador {
+  margin-inline: clamp(0.35rem, 1.5vw, 1rem);
+
+
+  font-size: 0.65em;
+  opacity: 0.75;
+}
+
+.fecha__anillos {
+  position: absolute;
+  z-index: 1;
+
+  top: 50%;
+
+  width: clamp(10rem, 25vw, 20rem);
+  height: auto;
+
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.fecha__anillos--izquierda {
+  left: clamp(-8rem, -7vw, -3rem);
+
+  transform:
+    translateY(-50%)
+    scaleX(-1)
+    rotate(-8deg);
+}
+
+.fecha__anillos--derecha {
+  right: clamp(-8rem, -7vw, -3rem);
+
+  transform:
+    translateY(-50%)
+    rotate(-8deg);
+}
+
+
+
+.fecha__anillos-central {
+  display: none;
+}
+
+
+.fecha__divisor {
+  width: clamp(8rem, 22vw, 13rem);
+  height: auto;
+
+  margin-top: clamp(1.75rem, 4vh, 2.5rem);
+
+  object-fit: contain;
+  opacity: 0.82;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (max-width: 700px) {
+  .fecha {
+    min-height: auto;
+
+    padding:
+      clamp(4rem, 12vw, 5rem)
+      1.25rem;
+  }
+
+  .fecha__contenido {
+    width: min(100%, 24rem);
+  }
+
+ .fecha__titulo {
+  margin-bottom: 1.25rem;
+}
+
+  /* Ocultamos las imágenes laterales */
+
+  .fecha__anillos--izquierda,
+  .fecha__anillos--derecha {
+    display: none;
+  }
+
+  /* Mostramos una imagen completa y centrada */
+
+ .fecha__anillos-central {
+  display: block;
+
+  width: clamp(6.5rem, 28vw, 9rem);
+  height: auto;
+
+  margin:
+    1rem
+    auto
+    1.5rem;
+
+  object-fit: contain;
+}
+
+  .fecha__numero {
+    font-size: clamp(4rem, 11vw, 3.5rem);
+    letter-spacing: 0.03em;
+  }
+
+  .fecha__separador {
+    margin-inline: clamp(0.25rem, 1.5vw, 0.5rem);
+  }
+
+.fecha__divisor {
+  width: clamp(15rem, 34vw, 10rem);
+  margin-top: 1.5rem;
+  opacity: 0.82;
+}
+
+
+
+
+}
+
+@media (max-width: 380px) {
+  .fecha__numero {
+    font-size: 4rem;
+  }
+
+  .fecha__separador {
+    margin-inline: 0.3rem;
+  }
+
+  .fecha__anillos {
+    width: 9rem;
+    opacity: 0.72;
+  }
+}
