@@ -1,4 +1,5 @@
 import "./Lugar.css";
+import { WiDayCloudy } from "react-icons/wi";
 
 import iglesia from "../../assets/iglesia.png";
 import copas from "../../assets/copas-brindando.png";
@@ -12,9 +13,16 @@ const enlaceCeremonia = crearEnlaceMaps(
   "Parroquia San Francisco Solano, Sourdeoux 2199, Bella Vista, Bahía Blanca"
 );
 
+
+
 const enlaceCelebracion = crearEnlaceMaps(
   "Lo de Salazar Eventos, Tucumán 1867, Bella Vista, Bahía Blanca"
 );
+
+const enlaceClima =
+  "https://www.google.com/search?q=clima+Bella+Vista+San+Miguel+Buenos+Aires";
+
+
 
 function Lugar() {
   return (
@@ -127,6 +135,41 @@ function Lugar() {
             </a>
           </div>
         </article>
+
+
+<div className="lugar__clima">
+  <h3 className="lugar__clima-titulo">
+    ¿Cómo estará el día?
+  </h3>
+
+  <p className="lugar__clima-texto texto-descriptivo">
+    Tocá el ícono para consultar el clima
+  </p>
+
+  <a
+    className="lugar__clima-enlace"
+    href={enlaceClima}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Consultar el clima en Bahía Blanca"
+    title="Consultar el clima"
+  >
+    <WiDayCloudy
+      className="lugar__clima-icono"
+      aria-hidden="true"
+    />
+  </a>
+</div>
+
+
+
+
+
+
+
+
+
+
       </div>
     </section>
   );

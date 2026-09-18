@@ -6,8 +6,8 @@ import eucaliptoInferior from "../../assets/eucalipto-esquina-inferior-derecha.p
 import eucaliptoSuperior from "../../assets/eucalipto-esquina-superior-izquierda.png";
 
 const DATOS_BANCARIOS = {
-  alias: "ALE.MARTINEZGIZARRO",
-  cbu: "000000",
+  alias: "boda.aleyceci",
+  cbu: "0000003100082840099477",
 };
 
 function Regalos() {

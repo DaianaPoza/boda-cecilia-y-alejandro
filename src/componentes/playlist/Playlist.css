@@ -66,6 +66,29 @@
   opacity: 0.65;
 }
 
+
+.playlist__vigencia {
+  margin:
+    clamp(1.25rem, 3vw, 1.75rem)
+    0
+    0;
+
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: clamp(0.7rem, 2vw, 0.82rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+}
+
+
+
+
+
+
+
+
+
 @media (max-width: 600px) {
   .playlist {
     padding:

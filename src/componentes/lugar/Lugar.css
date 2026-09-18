@@ -153,6 +153,142 @@
   margin-top: clamp(1.5rem, 4vw, 2rem);
 }
 
+
+
+.lugar__clima {
+  width: min(100%, 35rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin:
+    clamp(4.5rem, 10vw, 7rem)
+    auto
+    0;
+
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+
+  border-top: 1px solid rgb(98 103 89 / 32%);
+
+  text-align: center;
+}
+
+.lugar__clima-titulo {
+  margin: 0;
+
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-size: clamp(0.8rem, 2vw, 0.95rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.lugar__clima-texto {
+  margin:
+    0.75rem
+    0
+    1.5rem;
+
+  font-family: var(--fuente-texto);
+  font-size: clamp(0.72rem, 2vw, 0.85rem);
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+}
+
+.lugar__clima-enlace {
+  width: clamp(5.25rem, 15vw, 6.5rem);
+  aspect-ratio: 1;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgb(113 128 102 / 65%);
+  border-radius: 50%;
+
+  color: var(--color-boton);
+  text-decoration: none;
+
+  background-color: rgb(255 253 248 / 28%);
+  cursor: pointer;
+
+  animation: indicar-click 4s ease-in-out infinite;
+
+  transition:
+    color 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.lugar__clima-icono {
+  width: 68%;
+  height: 68%;
+}
+
+.lugar__clima-enlace:hover {
+  color: var(--color-claro);
+  border-color: var(--color-boton);
+  background-color: var(--color-boton);
+
+  box-shadow:
+    0 0.5rem 1.25rem
+    rgb(74 84 67 / 15%);
+
+  animation-play-state: paused;
+  transform: translateY(-0.2rem) scale(1.04);
+}
+
+.lugar__clima-enlace:active {
+  transform: scale(0.94);
+}
+
+.lugar__clima-enlace:focus-visible {
+  outline: 3px solid rgb(113 128 102 / 30%);
+  outline-offset: 5px;
+}
+
+
+
+
+@keyframes indicar-click {
+  0%,
+  82%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  86% {
+    transform: translateY(-0.25rem) rotate(-4deg);
+  }
+
+  90% {
+    transform: translateY(0) rotate(4deg);
+  }
+
+  94% {
+    transform: translateY(-0.12rem) rotate(-2deg);
+  }
+
+  97% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 700px) {
   .lugar {
     padding:
@@ -207,4 +343,31 @@
   .lugar__transicion-texto {
     font-size: 1.15rem;
   }
+
+
+.lugar__clima {
+  width: min(100%, 22rem);
+
+  margin-top: 4.5rem;
+  padding-top: 3rem;
+}
+
+.lugar__clima-enlace {
+  width: 5.5rem;
+}
+
+.lugar__clima-texto {
+  margin-bottom: 1.35rem;
+}
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .lugar__clima-enlace {
+    animation: none;
+  }
+}
+
+
+
 }

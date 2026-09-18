@@ -25,6 +25,16 @@ function Playlist() {
            a crear la playlist de nuestra fiesta
         </p>
 
+
+
+<p className="playlist__vigencia">
+ Sumá tus canciones durante los próximos 6 días
+</p>
+
+
+
+
+
         <a
           className="boton-secundario playlist__boton"
           href={SPOTIFY_COLLAB_URL}
