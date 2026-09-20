@@ -196,9 +196,9 @@ function App() {
         <main className="tarjeta">
           <Hero />
 
-          <div className="reveal-section">
+         
             <Fecha />
-          </div>
+      
 
           <div className="reveal-section">
             <CuentaRegresiva />
