@@ -317,12 +317,41 @@ function PanelCliente() {
       ),
     ].join("\r\n");
 
-    const archivo = new Blob(
-      [`\uFEFF${contenido}`],
-      {
-        type: "text/csv;charset=utf-8;",
-      }
-    );
+
+
+
+
+
+  const buffer = new ArrayBuffer(
+  (contenido.length + 1) * 2
+);
+
+const vista = new DataView(buffer);
+
+vista.setUint16(0, 0xfeff, true);
+
+for (
+  let indice = 0;
+  indice < contenido.length;
+  indice += 1
+) {
+  vista.setUint16(
+    (indice + 1) * 2,
+    contenido.charCodeAt(indice),
+    true
+  );
+}
+
+const archivo = new Blob(
+  [buffer],
+  {
+    type: "text/csv;charset=utf-16le;",
+  }
+);
+
+
+
+
 
     const url =
       URL.createObjectURL(archivo);
