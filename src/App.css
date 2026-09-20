@@ -110,6 +110,12 @@ img {
 
 
 .boton-principal {
+
+
+ display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   min-width: 10.5rem;
   min-height: 3rem;
 
@@ -120,7 +126,9 @@ img {
   color: var(--color-claro);
   font-size: 0.76rem;
   font-weight: 500;
+  line-height: 1;
   letter-spacing: 0.22em;
+  text-decoration: none;
   text-transform: uppercase;
 
   background-color: var(--color-boton);
@@ -130,6 +138,8 @@ img {
     background-color 200ms ease,
     border-color 200ms ease,
     transform 200ms ease;
+
+  
 }
 
 .boton-principal:hover {

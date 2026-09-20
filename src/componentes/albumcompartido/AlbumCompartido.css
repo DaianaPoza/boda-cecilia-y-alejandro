@@ -1,0 +1,201 @@
+.album-compartido {
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: clamp(45rem, 100svh, 56rem);
+  overflow: hidden;
+
+  padding:
+    clamp(3.5rem, 8vw, 5rem)
+    clamp(1.25rem, 5vw, 3rem);
+
+  background-color: var(--color-fondo-alterno);
+}
+
+/* Imagen de fondo */
+
+.album-compartido::before {
+  content: "";
+
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+
+  background-image: var(--album-fondo);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  transform: scale(1.01);
+}
+
+/*
+  Capa muy suave: permite leer los textos,
+  pero conserva el contraste de la cámara.
+*/
+
+.album-compartido::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background-color: rgb(238 233 223 / 12%);
+}
+
+.album-compartido__contenido {
+  width: min(100%, 40rem);
+  min-height: clamp(38rem, 85svh, 48rem);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(2rem, 6vw, 4rem);
+}
+
+/* Título ubicado en la parte superior */
+
+.album-compartido__titulo {
+  padding:
+    0.4rem
+    1.25rem;
+
+  background-color: rgb(247 246 242 / 78%);
+
+  text-shadow:
+    0 1px 1px
+    rgb(255 255 255 / 80%);
+
+  backdrop-filter: blur(0.15rem);
+  -webkit-backdrop-filter: blur(0.15rem);
+  
+}
+
+/*
+  Reserva el centro de la sección para que
+  la cámara pueda verse completamente.
+*/
+
+.album-compartido__espacio-camara {
+  flex: 1;
+  min-height: clamp(17rem, 42vw, 24rem);
+}
+
+/* Panel inferior */
+
+.album-compartido__panel {
+  width: min(100%, 33rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: clamp(1.75rem, 4vw, 2.25rem);
+
+  padding:
+    clamp(1.75rem, 4vw, 2.5rem)
+    clamp(1.25rem, 4vw, 2.5rem);
+
+  border: 1px solid rgb(169 137 101 / 28%);
+
+  background-color: rgb(247 246 242 / 90%);
+
+  box-shadow:
+    0 0.75rem 2rem
+    rgb(74 84 67 / 10%);
+
+  backdrop-filter: blur(0.35rem);
+  -webkit-backdrop-filter: blur(0.35rem);
+}
+
+.album-compartido__mensaje {
+  width: 100%;
+  max-width: 29rem;
+
+  margin: 0;
+
+  color: var(--color-texto);
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.2rem, 3.5vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+.album-compartido__boton {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+
+@media (max-width: 600px) {
+  .album-compartido {
+    min-height: 46rem;
+
+    padding:
+      3rem
+      1.15rem;
+  }
+
+  .album-compartido::before {
+    /*
+      Mantiene la cámara centrada aunque se recorten
+      los costados de la imagen cuadrada.
+    */
+    background-position: center;
+    background-size: auto 100%;
+  }
+
+  .album-compartido::after {
+    background-color: rgb(238 233 223 / 8%);
+  }
+
+  .album-compartido__contenido {
+    min-height: 40rem;
+  }
+
+
+  .album-compartido__espacio-camara {
+    min-height: 19rem;
+  }
+
+  .album-compartido__panel {
+    width: min(100%, 23rem);
+
+    padding:
+      1.5rem
+      1.25rem;
+  }
+
+  .album-compartido__mensaje {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .album-compartido {
+    min-height: 43rem;
+    padding-inline: 1rem;
+  }
+
+  .album-compartido__contenido {
+    min-height: 37rem;
+  }
+
+
+  .album-compartido__espacio-camara {
+    min-height: 17rem;
+  }
+
+  .album-compartido__panel {
+    padding:
+      1.35rem
+      1rem;
+  }
+
+  .album-compartido__mensaje {
+    font-size: 1.05rem;
+  }
+}
