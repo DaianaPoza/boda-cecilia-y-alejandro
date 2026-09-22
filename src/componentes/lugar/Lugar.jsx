@@ -108,11 +108,11 @@ function Lugar() {
               Celebración
             </h3>
 
-       {/*       <p className="lugar__nombre texto-descriptivo">
+            <p className="lugar__nombre texto-descriptivo">
           
-        Lo de Salazar Eventos.
+      Salón  Lo de Salazar Eventos
         
-            </p> */}
+            </p> 
 
             <address className="lugar__direccion texto-descriptivo">
               Tucumán 1867
