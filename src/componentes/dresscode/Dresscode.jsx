@@ -8,12 +8,7 @@ import dosHojitas from "../../assets/dos-hojitas.png";
 function DressCode() {
   return (
     <section className="dress-code seccion-clara">
-      <img
-        className="dress-code__hoja dress-code__hoja--superior"
-        src={broteTresHojas}
-        alt=""
-        aria-hidden="true"
-      />
+    
 
       <div className="dress-code__contenido">
         <h2 className="titulo-seccion dress-code__titulo">
@@ -48,12 +43,7 @@ function DressCode() {
         />
       </div>
 
-      <img
-        className="dress-code__hoja dress-code__hoja--inferior"
-        src={dosHojitas}
-        alt=""
-        aria-hidden="true"
-      />
+   
     </section>
   );
 }

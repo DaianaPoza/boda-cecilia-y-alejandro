@@ -1,48 +1,55 @@
 import "./Hero.css";
 
-import dosHojitas from "../../assets/dos-hojitas.png";
-import grupoCincoHojas from "../../assets/grupo-cinco-hojas.png";
-import hojaIndividual from "../../assets/hoja-individual.png";
 import ramitaDivisora from "../../assets/ramita-eucalipto-divisor.png";
 import ramaSuperiorHero from "../../assets/eucalipto-esquina-superior-izquierda.png";
+import ramaInferiorHero from "../../assets/ramito-eucalipto-transparente.png";
 
 function Hero() {
   return (
     <section className="hero seccion-clara">
+      <img
+        className="hero__rama-superior"
+        src={ramaSuperiorHero}
+        alt=""
+        aria-hidden="true"
+      />
 
+
+
+
+{/* Ramo inferior izquierdo */}
+<div
+  className="hero__rama-inferior hero__rama-inferior--izquierda"
+  aria-hidden="true"
+>
   <img
-    className="hero__rama-superior"
-    src={ramaSuperiorHero}
+    className="hero__rama-inferior-imagen"
+    src={ramaInferiorHero}
     alt=""
-    aria-hidden="true"
   />
+</div>
+
+{/* Ramo inferior derecho */}
+<div
+  className="hero__rama-inferior hero__rama-inferior--derecha"
+  aria-hidden="true"
+>
+  <img
+    className="hero__rama-inferior-imagen hero__rama-inferior-imagen--invertida"
+    src={ramaInferiorHero}
+    alt=""
+  />
+</div>
 
 
 
 
-      <img
-        className="hero__hoja hero__hoja--superior-izquierda"
-        src={dosHojitas}
-        alt=""
-        aria-hidden="true"
-      />
-
-      <img
-        className="hero__hoja hero__hoja--superior-derecha"
-        src={hojaIndividual}
-        alt=""
-        aria-hidden="true"
-      />
 
       <div className="hero__contenido">
         <header className="hero__encabezado">
-          <span className="hero__antesala">
-            Nos
-          </span>
+          <span className="hero__antesala">Nos</span>
 
-          <h1 className="hero__titulo">
-            Casamos
-          </h1>
+          <h1 className="hero__titulo">Casamos</h1>
         </header>
 
         <div className="hero__divisor" aria-hidden="true">
@@ -64,7 +71,7 @@ function Hero() {
         </p>
 
         <p className="hero__frase-final">
-         Porque cada historia linda
+          Porque cada historia linda
           <br />
           merece ser celebrada
         </p>
@@ -74,13 +81,6 @@ function Hero() {
           aria-hidden="true"
         />
       </div>
-
-      <img
-        className="hero__hoja hero__hoja--inferior-derecha"
-        src={grupoCincoHojas}
-        alt=""
-        aria-hidden="true"
-      />
     </section>
   );
 }

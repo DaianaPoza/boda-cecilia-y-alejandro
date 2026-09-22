@@ -42,9 +42,7 @@ function Lugar() {
           </div>
 
           <div className="lugar__informacion">
-            <p className="lugar__orden texto-descriptivo">
-              Primero
-            </p>
+           
 
             <h3 className="lugar__subtitulo">
               Ceremonia
@@ -104,17 +102,17 @@ function Lugar() {
           </div>
 
           <div className="lugar__informacion">
-            <p className="lugar__orden texto-descriptivo">
-              Después
-            </p>
+            
 
             <h3 className="lugar__subtitulo">
               Celebración
             </h3>
 
-            <p className="lugar__nombre texto-descriptivo">
-              Lo de Salazar Eventos
-            </p>
+       {/*       <p className="lugar__nombre texto-descriptivo">
+          
+        Lo de Salazar Eventos.
+        
+            </p> */}
 
             <address className="lugar__direccion texto-descriptivo">
               Tucumán 1867

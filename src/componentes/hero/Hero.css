@@ -149,45 +149,90 @@
   opacity: 0.7;
 }
 
-.hero__hoja {
+
+
+
+
+
+.hero__rama-inferior {
   position: absolute;
   z-index: 1;
 
-  height: auto;
-  object-fit: contain;
+  bottom: -2rem;
+
+  width: clamp(14rem, 30vw, 26rem);
 
   pointer-events: none;
   user-select: none;
 }
 
-.hero__hoja--superior-izquierda {
-  top: clamp(1rem, 4vw, 3rem);
-  left: clamp(-2.5rem, -2vw, -0.5rem);
+/* Contenedor ubicado en la esquina inferior izquierda */
+.hero__rama-inferior--izquierda {
+  left: -2rem;
 
-  width: clamp(7rem, 16vw, 12rem);
-
-  transform: rotate(-20deg);
+  transform: rotate(14deg);
+  transform-origin: left bottom;
 }
 
-.hero__hoja--superior-derecha {
-  top: clamp(3rem, 8vw, 6rem);
-  right: clamp(0.5rem, 4vw, 3rem);
+/* Contenedor ubicado en la esquina inferior derecha */
+.hero__rama-inferior--derecha {
+  right: -2rem;
 
-  width: clamp(2.5rem, 6vw, 4.5rem);
-
-  transform: rotate(28deg);
-  opacity: 0.8;
+  /*
+   * La rotación es opuesta para lograr
+   * una composición realmente simétrica.
+   */
+  transform: rotate(-14deg);
+  transform-origin: right bottom;
 }
 
-.hero__hoja--inferior-derecha {
-  right: clamp(-4rem, -3vw, -1rem);
-  bottom: clamp(-1.5rem, -2vw, -0.25rem);
+.hero__rama-inferior-imagen {
+  display: block;
 
-  width: clamp(11rem, 25vw, 20rem);
+  width: 100%;
+  height: auto;
 
-  transform: rotate(-8deg);
-  opacity: 0.9;
+  object-fit: contain;
 }
+
+/* Solamente refleja la imagen, sin modificar su posición */
+.hero__rama-inferior-imagen--invertida {
+  transform: scaleX(-1);
+}
+
+
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+  z-index: 1;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: clamp(3rem, 7vw, 5rem);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(246, 241, 233, 0) 0%,
+    rgba(246, 241, 233, 0.45) 40%,
+    rgba(246, 241, 233, 0.9) 80%,
+    #f6f1e9 100%
+  );
+
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 600px) {
     .hero {
@@ -196,7 +241,7 @@
     padding:
       12rem
       1.5rem
-      4rem;
+      7rem;
   }
 
 
@@ -210,26 +255,21 @@
   }
 
 
-
-
-
-  .hero__hoja--superior-izquierda {
-    top: 1rem;
-    left: -2.5rem;
-    width: 8rem;
-  }
-
-  .hero__hoja--superior-derecha {
-    top: 5rem;
-    right: 0.5rem;
-    width: 3rem;
-  }
-
-  .hero__hoja--inferior-derecha {
-    right: -4rem;
-    bottom: -1rem;
+ .hero__rama-inferior {
+    bottom: -1.25rem;
     width: 13rem;
   }
+
+  .hero__rama-inferior--izquierda {
+    left: -1.5rem;
+  }
+
+  .hero__rama-inferior--derecha {
+    right: -1.5rem;
+  }
+
+
+
 }
 
 @media (max-height: 680px) {
@@ -256,3 +296,5 @@
     white-space: nowrap;
   }
 }
+
+
