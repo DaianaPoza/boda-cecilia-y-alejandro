@@ -2,7 +2,7 @@ import { FaSpotify } from "react-icons/fa";
 import "./Playlist.css";
 
 const SPOTIFY_COLLAB_URL =
-  "PEGAR_ACA_EL_ENLACE_COLABORATIVO";
+  "https://open.spotify.com/playlist/0eArv420nR0c6LkEdhdu5a?si=g53oOBu8RPyMzRBXCvKA3g&utm_source=whatsapp&pt=2970dce481172ebc350235b53d9229d7&pi=e3WOZzfsQ4qoo";
 
 function Playlist() {
   return (
