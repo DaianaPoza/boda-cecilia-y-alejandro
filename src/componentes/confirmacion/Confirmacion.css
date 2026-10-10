@@ -295,6 +295,54 @@
   opacity: 0.65;
 }
 
+
+
+
+
+
+
+.confirmacion__exito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem 1rem;
+  text-align: center;
+  animation: confirmacion-aparecer 0.5s ease;
+}
+
+.confirmacion__exito-icono {
+  font-size: 4.5rem;
+  color: #4a6a41;
+}
+
+.confirmacion__exito-texto {
+  max-width: 28rem;
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+@keyframes confirmacion-aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 600px) {
   .confirmacion {
     padding:

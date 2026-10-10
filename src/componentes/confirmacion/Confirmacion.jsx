@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { supabase } from "../../lib/supabase.js";
+import { FaCheckCircle } from "react-icons/fa";
 
 import "./Confirmacion.css";
 
 const EVENTO_SLUG = "boda-cecilia-alejandro";
+
+
+
+
+
+
+
+
+
 
 const CANTIDADES = Array.from(
   { length: 8 },
@@ -45,6 +55,32 @@ const obtenerEtiquetaRestriccion = (valor) =>
   )?.etiqueta ?? valor;
 
 function Confirmacion() {
+
+
+
+const [confirmado, setConfirmado] = useState(false);
+const seccionRef = useRef(null);
+const scrollPendiente = useRef(false);
+
+useEffect(() => {
+  if (!confirmado || !scrollPendiente.current) return;
+
+  scrollPendiente.current = false;
+  seccionRef.current?.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+}, [confirmado]);
+
+
+
+
+
+
+
+
+
+
   const [asiste, setAsiste] = useState("");
 
   const [nombreNoAsiste, setNombreNoAsiste] =
@@ -246,33 +282,76 @@ function Confirmacion() {
           : null,
     };
 
-    const { error } = await supabase
-      .from("confirmaciones")
-      .insert([respuesta]);
 
-    if (error) {
+
+
+    try {
+      const { error } = await supabase
+        .from("confirmaciones")
+        .insert([respuesta]);
+
+      if (error) throw error;
+
+     
+      limpiarFormulario();
+      scrollPendiente.current = true;
+      setConfirmado(true);
+    } catch (error) {
       console.error(
         "Error al guardar la confirmación:",
         error
       );
 
       setMensaje(
-        "No pudimos registrar tu respuesta. Intentá nuevamente."
+        "No pudimos registrar tu respuesta. Revisá tu conexión e intentá nuevamente."
       );
-
       setTipoMensaje("error");
+    } finally {
       setEnviando(false);
-      return;
     }
-
-    setMensaje(
-      "¡Gracias! Tu respuesta fue registrada correctamente."
-    );
-
-    setTipoMensaje("success");
-    limpiarFormulario();
-    setEnviando(false);
   };
+
+
+
+
+  if (confirmado) {
+    return (
+      <section
+        ref={seccionRef}
+        className="confirmacion seccion-clara"
+        aria-labelledby="confirmacion-titulo"
+      >
+        <div className="confirmacion__contenido">
+          <div className="confirmacion__exito" role="status">
+            <FaCheckCircle
+              className="confirmacion__exito-icono"
+              aria-hidden="true"
+            />
+
+            <h2
+              className="titulo-seccion confirmacion__titulo"
+              id="confirmacion-titulo"
+            >
+              ¡Ya registramos tu respuesta!
+            </h2>
+
+            <p className="confirmacion__exito-texto">
+              ¡Gracias por confirmar!
+              <br />
+              No es necesario que vuelvas a completar el formulario.
+            </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+
+
+
+
+
+    
 
   return (
     <section
